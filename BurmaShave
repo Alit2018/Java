@@ -1,0 +1,20 @@
+// Write your code here
+
+public class BurmaShave {
+    public static void main(String[] args){
+
+        System.out.println("Shaving brushes");
+        System.out.println("Soon grow stale");
+        System.out.println("Try the tube");
+        System.out.println("That's on the shelf");
+        System.out.println("Burma Shave");
+    }
+}
+
+
+/*System.out.println("Shaving brushes");
+System.out.println("You’ll soon see ’em");
+System.out.println("On a shelf");
+System.out.println("In some museum");
+System.out.println("Burma Shave");
+*/
