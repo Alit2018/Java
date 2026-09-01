@@ -1,6 +1,6 @@
 // Write your code here
 
-public class BurmaShave {
+public class Unit1BurmaShave {
     public static void main(String[] args){
 
         System.out.println("Shaving brushes");
