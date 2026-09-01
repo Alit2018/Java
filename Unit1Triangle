@@ -1,5 +1,5 @@
 // Write your code here
-public class Triangle{
+public class Unit1Triangle{
      public static void main(String[] args){
         System.out.println("      T");
         System.out.println("     TTT");
