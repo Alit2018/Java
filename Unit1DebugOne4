@@ -1,4 +1,4 @@
-public class DebugOne4{
+public class Unit1DebugOne4{
    public static void main(String[] args){
       System.out.print("This output ");
       System.out.println("is on the same line as the last one.");
