@@ -1,4 +1,4 @@
-public class SongLyrics{
+public class Unit1SongLyrics{
    public static void main(String[] args){
       System.out.println("Somewhere over the rainbow");
       System.out.println("Way up high");
