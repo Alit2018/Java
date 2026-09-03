@@ -1,4 +1,4 @@
-public class DebugOne2
+public class Unit1DebugOne2
 {
    /* This program displays some output*/
    public static void main(String[] args)
