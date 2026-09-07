@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class MyProgram {
+    public static void main(String[] args) {
+        // 1. Setup the scanner to read from the console
+        Scanner var4 = new Scanner(System.in);
+        
+        // 2. Wait for the user to type an integer and press Enter
+        int var1 = var4.nextInt();
+        
+        // 3. Print that integer back out to the console
+        System.out.println(var1);
+        
+        // 4. Good practice: close the scanner when done
+        var4.close();
+    }
+}
+/*
+Import java.util.Scanner;
+    public class MyProgram { public static void main(String[] args) {
+scanner var4 = new Scanner(System.in);
+int var1 = var4.nextInt();
+System.out.println(var1);
+    }}
+*/
