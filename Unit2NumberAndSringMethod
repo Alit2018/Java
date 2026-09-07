@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class DebugTwo1
+{
+   public static void main(String[] args)
+   {
+      int oneInt;
+      double oneDouble;
+      String oneString;
+      
+      Scanner inputIn = new Scanner(System.in);
+      
+      System.out.print("Enter an integer >> ");
+      oneInt = inputIn.nextInt();
+      
+      System.out.print("Enter a double >> ");
+      oneDouble = inputIn.nextDouble();
+      
+      inputIn.nextLine(); //clears out that leftover Enter (leaves the Enter (\n) behind)
+      System.out.print("Enter a string >> ");
+      oneString = inputIn.nextLine();
+      
+      System.out.print("The int is ");
+      System.out.println(oneInt);
+      System.out.print("The double is ");
+      System.out.println(oneDouble);
+      System.out.print("The String is ");
+      System.out.println(oneString);
+   }
+}
+
+/*the () means we're calling a method.
+int → nextInt()
+double → nextDouble()
+String → nextLine()
+*/
