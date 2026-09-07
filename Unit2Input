@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner inputIn = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String name = inputIn.nextLine();
+
+        System.out.print("Enter your age: ");
+        int age = inputIn.nextInt();
+
+        System.out.print("Enter the price: ");
+        double price = inputIn.nextDouble();
+
+        System.out.println("Your name is " + name);
+        System.out.println("Your age is " + age);
+        System.out.println("The price is " + price);
+    }
+}
+
+
+//don't need the extra inputIn.nextLine() here because we're reading the String first, followed by the numbers.
