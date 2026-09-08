@@ -1,0 +1,30 @@
+public class Number {
+    int y = 16;
+    public static void main (String[] args){
+        Number myObj = new Number(); //myIbj is an abject that instance of class Number
+        Number myObj2 = new Number(); // new instance of class number, another object
+        System.out.println(myObj.y); //attribute
+
+
+        var cameWith = 0;
+        int items = 50;
+        double costPerItem = 9.99d;
+        double totalCost = items * costPerItem;
+        char currency = '$';
+
+        //Print variables
+        String greeting = "Hello";
+        String[] cars = {"BMW", "Volvo", "Honda"};
+
+
+        System.out.println(greeting);
+        System.out.println(cars[0]);
+
+        // Print variables
+        System.out.println("You came tith " + cameWith+ " items");
+        System.out.println("Number of items: " + items);
+        System.out.println("Cost per item: " + currency + costPerItem);
+        System.out.println("Total cost = " + currency + totalCost);
+
+    }
+}
