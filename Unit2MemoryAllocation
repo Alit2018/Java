@@ -1,0 +1,173 @@
+public class MemoryLab {
+/*
+The big picture is that Java gives you references and automatic
+memory management rather than normally exposing raw pointer manipulation.
+It also performs runtime checks, such as array bounds checks, which help
+prevent many common memory errors.
+ */
+
+
+    // STACK / REFERENCES - After stackDemo() finishes
+    // the method call is finished and local variables are
+    // no longer needed. This is temporary info storage
+
+    static void stackDemo() {
+
+        System.out.println("\n--- STACK / REFERENCES ---");
+
+        int x = 42;
+
+        System.out.println("x value: " + x);
+
+        // Java does NOT let us print the actual memory
+
+        // address of x.
+
+
+        // this is a reference not an array
+
+        int[] numbers = {10, 20, 30};
+
+        System.out.println("\nArray:");
+
+        System.out.println("numbers[0] = " + numbers[0]);
+
+        System.out.println("numbers[1] = " + numbers[1]);
+
+        System.out.println("numbers[2] = " + numbers[2]);
+
+    }
+
+    // HEAP - where objects are arrays are located
+
+    static void heapDemo() {
+
+        System.out.println("\n--- HEAP ---");
+
+        // Objects/arrays are created with "new".
+
+        // Java manages the memory automatically.
+
+        int[] numbers = new int[3]; //an array of objects where numbers is a reference to an array
+
+        numbers[0] = 100;
+
+        numbers[1] = 200;
+
+        numbers[2] = 300;
+
+        System.out.println("numbers[0] = " + numbers[0]);
+
+        System.out.println("numbers[1] = " + numbers[1]);
+
+        System.out.println("numbers[2] = " + numbers[2]);
+
+        // There is NO:
+
+        // either free(numbers); or for the array numbers = null;
+
+        // free(numbers);
+
+        // Java's garbage collector manages memory.
+        //Garbage collector = Java's automatic memory cleanup system.
+
+    }
+
+    // BUFFER OVERFLOW
+
+    static void bufferDemo() {
+
+        System.out.println("\n--- BUFFER ---");
+
+        byte[] buffer = new byte[8]; //8 elements here 0  1  2  3  4  5  6  7
+
+        System.out.println("Buffer size: " + buffer.length);
+
+        /*
+
+         * Java checks array boundaries.
+
+         *
+
+         * Trying:
+
+
+         * buffer[8] = 100;
+
+         * buffer[7] = 100; is ok ?
+
+         * causes an exception instead of allowing
+
+         * you to write into arbitrary neighboring memory.
+
+         */
+
+        try {
+
+            buffer[8] = 100;
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+
+            System.out.println(
+
+                    "Java prevented the invalid memory access."
+
+            );
+
+            System.out.println(
+
+                    "Exception: " + e.getClass().getSimpleName()
+
+            );
+
+        }
+
+    }
+
+    // NULL REFERENCE
+
+    static void nullReferenceDemo() {
+
+        System.out.println("\n--- NULL REFERENCE ---");
+
+        String text = null;
+
+        try {
+
+            System.out.println(text.length());
+
+        } catch (NullPointerException e) {
+
+            System.out.println(
+
+                    "Java detected that the reference is null."
+
+            );
+
+            System.out.println(
+
+                    "Exception: " + e.getClass().getSimpleName()
+
+            );
+
+        }
+
+    }
+
+    // MAIN
+
+    public static void main(String[] args) {
+
+        System.out.println("JAVA MEMORY LAB");
+
+        stackDemo();
+
+        heapDemo();
+
+        bufferDemo();
+
+        nullReferenceDemo();
+
+    }
+
+}
