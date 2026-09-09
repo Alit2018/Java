@@ -1,0 +1,74 @@
+class Vehicle {
+    // FINAL METHOD - Child can use it, but CANNOT override it
+    final void drive() {
+        System.out.println("Vehicle is driving.");
+    }
+    // NORMAL METHOD - Child CAN override it
+    void makeNoise() {
+        System.out.println("Vehicle makes a noise.");
+    }
+}
+class Car extends Vehicle {
+    // Override the normal method
+    @Override
+    void makeNoise() {
+        System.out.println("Car goes VROOM!");
+    }
+    // We CANNOT override drive() because it is final
+}
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.drive();       // Uses Vehicle's final method
+        myCar.makeNoise();   // Uses Car's overridden method
+    }
+}
+
+
+
+
+class Vehicle {
+    // FINAL VARIABLE = cannot be reassigned
+    final int wheels = 4;
+    // FINAL METHOD = cannot be overridden
+    final void drive() {
+        System.out.println("Vehicle is driving.");
+    }
+}
+// FINAL CLASS = cannot be inherited from
+final class Car extends Vehicle {
+    void showWheels() {
+        System.out.println("Wheels: " + wheels);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.showWheels();
+        myCar.drive();
+    }
+}
+
+
+
+class Vehicle {
+    final int wheels = 4;
+    void drive() {
+        System.out.println("Vehicle is driving.");
+    }
+}
+class Car extends Vehicle {
+    void showCar() {
+        System.out.println("Car has " + wheels + " wheels.");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.showCar();
+        myCar.drive();
+    }
+}
+
+
+
