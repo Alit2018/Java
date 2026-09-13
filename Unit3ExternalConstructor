@@ -1,0 +1,111 @@
+//With hidden constructor:
+class Vehicle {
+    final int wheels;
+
+    // Explicit constructor for Vehicle
+    public Vehicle(int wheels) {
+        this.wheels = wheels; // Sets the final variable during initialization
+    }
+
+    final void drive() {
+        System.out.println("Vehicle is driving.");
+    }
+}
+
+final class Car extends Vehicle {
+    
+    // Explicit constructor for Car
+    public Car() {
+        super(4); // Explicitly calls the Vehicle constructor and passes '4'
+    }
+
+    void showWheels() {
+        System.out.println("Wheels: " + wheels);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // This calls the explicit Car constructor
+        Car myCar = new Car(); 
+        
+        myCar.showWheels();
+        myCar.drive();
+    }
+}
+
+
+
+//With externla constructor:
+class Vehicle {
+    final int wheels;
+
+    // Explicit constructor for Vehicle
+    public Vehicle(int wheels) {
+        this.wheels = wheels; // Sets the final variable during initialization
+    }
+
+    final void drive() {
+        System.out.println("Vehicle is driving.");
+    }
+}
+
+final class Car extends Vehicle {
+    
+    // Explicit constructor for Car
+    public Car() {
+        super(4); // Explicitly calls the Vehicle constructor and passes '4'
+    }
+
+    void showWheels() {
+        System.out.println("Wheels: " + wheels);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // This calls the explicit Car constructor
+        Car myCar = new Car(); 
+        
+        myCar.showWheels();
+        myCar.drive();
+    }
+}
+
+
+//With external Constructor and unlocked:
+class Vehicle {
+    int wheels; // No longer a locked constant
+
+    public Vehicle(int wheels) {
+        this.wheels = wheels; 
+    }
+
+    void drive() { // Subclasses can now override this method
+        System.out.println("Vehicle is driving.");
+    }
+}
+
+final class Car extends Vehicle {
+    public Car() {
+        super(4); 
+    }
+
+    // Because 'drive' is no longer final, Car can customize it!
+    @Override
+    void drive() {
+        System.out.println("Car is accelerating smoothly!");
+    }
+
+    void showWheels() {
+        System.out.println("Wheels: " + wheels);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car(); 
+        myCar.showWheels();
+        myCar.drive(); // This will now print the Car's custom message
+    }
+}
