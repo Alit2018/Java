@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        String subject;
+        int grade;
+
+        Scanner inputDevice = new Scanner(System.in);
+        //You're creating a Scanner object named: inputDevice
+        //System.in means the input will come from the user, normally through the keyboard.
+        //Create a Scanner called inputDevice that listens to keyboard input.
+
+        System.out.print("Please enter your grade ");
+        grade = inputDevice.nextInt(); 
+        //nextInt() reads the integer and stores it inside: inputDevice.nextLine();
+        //"Why are we using nextLine() when we're not storing anything?"
+        //Because nextInt() reads the number but does not consume the Enter/newline character
+        //inputDevice.nextLine(); clears that leftover Enter/newline.
+
+        System.out.print("Please enter your subject ");
+        subject = inputDevice.nextLine();
+
+        System.out.println("Your subject is " + subject +
+                " and you got " + grade + " grade.");
+    }
+}
