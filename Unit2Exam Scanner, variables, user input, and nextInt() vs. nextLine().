@@ -5,7 +5,7 @@ public class Main {
         String subject;
         int grade;
 
-        Scanner inputDevice = new Scanner(System.in);
+        Scanner inputDevice = new Scanner(System.in); // creates a Scanner objec
         //You're creating a Scanner object named: inputDevice
         //System.in means the input will come from the user, normally through the keyboard.
         //Create a Scanner called inputDevice that listens to keyboard input.
