@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        System.out.println("What is your name?");
+        Scanner myInput = new Scanner(System.in);
+        String userName = myInput.nextLine();
+
+        System.out.println("What is your nickname?");
+        String userNickname = myInput.nextLine();
+
+        System.out.println("Hello " + userName + "! Your nickname is " + userNickname );
+        myInput.close();
+    }
+}
