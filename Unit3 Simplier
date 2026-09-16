@@ -1,0 +1,14 @@
+/*
+public vlass Main{
+  public static void main(String... args){
+    System.out.println("Hello Class!");
+  }
+}    
+ */   
+    void main() {
+      System.out.println("Hello Class!");
+      myMethod();
+    }
+    void myMethod(){
+      System.out.println("Bonjure mis ami!");
+    }
