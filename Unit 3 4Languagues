@@ -6,7 +6,7 @@ for (i in 1 .. 5)
 
 println(i)}
 
-This is simply crazy - my head is spining :) I think I should stop and do our regular strictly written languague assigments:
+
 
 public static Mains {
 
@@ -20,7 +20,7 @@ System.out.println(i);
 
 }}}
 
-This makes so much sense for some reason. and of course:
+
 
 console.log("Ola");
 
@@ -28,7 +28,8 @@ for (let i = 1, i &lt;=5, i++){
 
 console.log(i);}
 
-oh well, one more:
+
+
 
 print("Hello")
 
