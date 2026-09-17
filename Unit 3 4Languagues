@@ -36,3 +36,18 @@ print("Hello")
 for i in range (1,6):
 
 print(i)
+
+Java: variables, data types, methods, classes, objects, constructors, 
+encapsulation, inheritance, polymorphism, arrays, collections, 
+exception handling, and threads.
+JS:variables, conditions, loops, functions, arrays, objects, classes, 
+and exceptions, but with a more flexible type system.
+Python:variables, conditions, loops, functions, classes, objects, 
+inheritance, lists, dictionaries, exceptions, and files, but there's 
+usually less syntax surrounding the concept.
+
+Java is especially important for large applications, backend systems, 
+enterprise software, and JVM-based development.
+JS - web development, browser and node.js
+Python is particularly important for automation, scripting, 
+scientific computing, data analysis, machine learning, AI, and backend development.
