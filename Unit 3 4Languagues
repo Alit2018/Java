@@ -51,3 +51,25 @@ enterprise software, and JVM-based development.
 JS - web development, browser and node.js
 Python is particularly important for automation, scripting, 
 scientific computing, data analysis, machine learning, AI, and backend development.
+
+
+What is explicit variable declaration?
+class Car {                         // CLASS
+
+    String brand;                   // VARIABLE + DATA TYPE
+
+    void drive() {                  // METHOD
+        System.out.println("Driving");
+    }
+}
+then:
+Car myCar = new Car();              // OBJECT
+Here Car myCar is also an explicit variable declaration: Car is the reference type, and myCar is the variable.
+WHY?
+Car myCar = new Car();
+Car → the data/reference type
+myCar → the variable name
+new Car() → creates a new Car object
+= → assigns the reference to that object to myCar
+So when we say explicit variable declaration, we don't mean just myCar. 
+We mean Car myCar, because you are explicitly declaring that myCar is a variable of type Car.
