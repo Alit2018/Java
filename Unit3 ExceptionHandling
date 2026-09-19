@@ -1,0 +1,6 @@
+try {
+    int age = input.nextInt();
+    System.out.println("Your age is " + age);
+} catch (Exception e) {
+    System.out.println("Please enter a number.");
+}
