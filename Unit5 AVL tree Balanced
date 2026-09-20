@@ -1,0 +1,144 @@
+public class Main {
+
+    static class Node {
+
+        int value;
+        int height;
+
+        Node left;
+        Node right;
+
+        Node(int value) {
+            this.value = value;
+            this.height = 1;
+        }
+    }
+
+
+    static int height(Node node) {
+
+        if (node == null) {
+            return 0;
+        }
+
+        return node.height;
+    }
+
+
+    static int balance(Node node) {
+
+        if (node == null) {
+            return 0;
+        }
+
+        return height(node.left) - height(node.right);
+    }
+
+
+    static Node rotateRight(Node node) {
+
+        Node newRoot = node.left;
+        Node temp = newRoot.right;
+
+        newRoot.right = node;
+        node.left = temp;
+
+        node.height = 1 + Math.max(height(node.left), height(node.right));
+        newRoot.height = 1 + Math.max(height(newRoot.left), height(newRoot.right));
+
+        return newRoot;
+    }
+
+
+    static Node rotateLeft(Node node) {
+
+        Node newRoot = node.right;
+        Node temp = newRoot.left;
+
+        newRoot.left = node;
+        node.right = temp;
+
+        node.height = 1 + Math.max(height(node.left), height(node.right));
+        newRoot.height = 1 + Math.max(height(newRoot.left), height(newRoot.right));
+
+        return newRoot;
+    }
+
+
+    static Node insert(Node node, int value) {
+
+        // Normal Binary Search Tree insertion
+
+        if (node == null) {
+            return new Node(value);
+        }
+
+        if (value < node.value) {
+            node.left = insert(node.left, value);
+
+        } else if (value > node.value) {
+            node.right = insert(node.right, value);
+
+        } else {
+            return node;
+        }
+
+
+        // Update height
+
+        node.height =
+                1 + Math.max(height(node.left), height(node.right));
+
+
+        // Check balance
+
+        int balance = balance(node);
+
+
+        // Left Left
+        if (balance > 1 && value < node.left.value) {
+            return rotateRight(node);
+        }
+
+
+        // Right Right
+        if (balance < -1 && value > node.right.value) {
+            return rotateLeft(node);
+        }
+
+
+        // Left Right
+        if (balance > 1 && value > node.left.value) {
+
+            node.left = rotateLeft(node.left);
+
+            return rotateRight(node);
+        }
+
+
+        // Right Left
+        if (balance < -1 && value < node.right.value) {
+
+            node.right = rotateRight(node.right);
+
+            return rotateLeft(node);
+        }
+
+
+        return node;
+    }
+
+
+    public static void main(String[] args) {
+
+        Node root = null;
+
+        root = insert(root, 30);
+        root = insert(root, 20);
+        root = insert(root, 10);
+
+        System.out.println("Root: " + root.value);
+        System.out.println("Left: " + root.left.value);
+        System.out.println("Right: " + root.right.value);
+    }
+}
