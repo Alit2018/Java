@@ -1,0 +1,45 @@
+public class Main {
+
+    static class Node {
+        int value;
+        Node left;
+        Node right;
+
+        Node(int value) {
+            this.value = value;
+        }
+
+        void insert(int newValue) {
+
+            if (newValue < value) {
+
+                if (left == null) {
+                    left = new Node(newValue);
+                } else {
+                    left.insert(newValue);
+                }
+
+            } else {
+
+                if (right == null) {
+                    right = new Node(newValue);
+                } else {
+                    right.insert(newValue);
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Node root = new Node(20);
+
+        root.insert(10);
+        root.insert(30);
+        root.insert(5);
+
+        System.out.println("Root: " + root.value);
+        System.out.println("Left: " + root.left.value);
+        System.out.println("Right: " + root.right.value);
+    }
+}
