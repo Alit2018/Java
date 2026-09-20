@@ -1,0 +1,24 @@
+public class Main {
+
+    static class Node {
+        int value;
+        Node left;
+        Node right;
+
+        Node(int value) {
+            this.value = value;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Node root = new Node(20);
+
+        root.left = new Node(10);
+        root.right = new Node(30);
+
+        System.out.println("Root: " + root.value);
+        System.out.println("Left: " + root.left.value);
+        System.out.println("Right: " + root.right.value);
+    }
+}
