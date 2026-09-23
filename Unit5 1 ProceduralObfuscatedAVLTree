@@ -1,0 +1,96 @@
+import java.util.*;
+
+class N {
+    int a,b=1;
+    N c,d;
+    N(int e){a=e;}
+}
+
+public class Main {
+
+    static N x;
+
+    public static void main(String[]a){
+        Scanner b=new Scanner(System.in);
+
+        System.out.print("How many numbers would you like to add? ");
+        int c=b.nextInt();
+
+        for(int d=0;d<c;d++){
+            System.out.print("Enter a number: ");
+            x=a(x,b.nextInt());
+        }
+
+        System.out.println("Your AVL tree in sorted order:");
+        f(x);
+
+        b.close();
+    }
+
+    static N a(N b,int c){
+        if(b==null)return new N(c);
+
+        if(c<b.a)b.c=a(b.c,c);
+        else if(c>b.a)b.d=a(b.d,c);
+        else return b;
+
+        b.b=1+Math.max(b(b.c),b(b.d));
+
+        int d=c(b);
+
+        if(d>1&&c<b.c.a)return d(b);
+        if(d<-1&&c>b.d.a)return e(b);
+
+        if(d>1&&c>b.c.a){
+            b.c=e(b.c);
+            return d(b);
+        }
+
+        if(d<-1&&c<b.d.a){
+            b.d=d(b.d);
+            return e(b);
+        }
+
+        return b;
+    }
+
+    static int b(N a){
+        return a==null?0:a.b;
+    }
+
+    static int c(N a){
+        return a==null?0:b(a.c)-b(a.d);
+    }
+
+    static N d(N a){
+        N b=a.c,c=b.d;
+
+        b.d=a;
+        a.c=c;
+
+        a.b=1+Math.max(b(a.c),b(a.d));
+        b.b=1+Math.max(b(b.c),b(b.d));
+
+        return b;
+    }
+
+    static N e(N a){
+        N b=a.d,c=b.c;
+
+        b.c=a;
+        a.d=c;
+
+        a.b=1+Math.max(b(a.c),b(a.d));
+        b.b=1+Math.max(b(b.c),b(b.d));
+
+        return b;
+    }
+
+    static void f(N a){
+        if(a!=null){
+            f(a.c);
+            System.out.print(a.a+" ");
+            f(a.d);
+        }
+    }
+}
