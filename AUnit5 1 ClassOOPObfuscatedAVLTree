@@ -1,0 +1,112 @@
+import java.util.*;
+
+class A {
+    int a,b=1;
+    A c,d;
+
+    A(int x){
+        a=x;
+    }
+}
+
+class B {
+    private A a;
+
+    public void a(int b){
+        a=a(a,b);
+    }
+
+    private A a(A b,int c){
+        if(b==null)return new A(c);
+
+        if(c<b.a)b.c=a(b.c,c);
+        else if(c>b.a)b.d=a(b.d,c);
+        else return b;
+
+        b.b=1+Math.max(b(b.c),b(b.d));
+
+        int x=c(b);
+
+        if(x>1&&c<b.c.a)return d(b);
+        if(x<-1&&c>b.d.a)return e(b);
+
+        if(x>1&&c>b.c.a){
+            b.c=e(b.c);
+            return d(b);
+        }
+
+        if(x<-1&&c<b.d.a){
+            b.d=d(b.d);
+            return e(b);
+        }
+
+        return b;
+    }
+
+    private int b(A a){
+        return a==null?0:a.b;
+    }
+
+    private int c(A a){
+        return a==null?0:b(a.c)-b(a.d);
+    }
+
+    private A d(A a){
+        A b=a.c;
+        A c=b.d;
+
+        b.d=a;
+        a.c=c;
+
+        a.b=1+Math.max(b(a.c),b(a.d));
+        b.b=1+Math.max(b(b.c),b(b.d));
+
+        return b;
+    }
+
+    private A e(A a){
+        A b=a.d;
+        A c=b.c;
+
+        b.c=a;
+        a.d=c;
+
+        a.b=1+Math.max(b(a.c),b(a.d));
+        b.b=1+Math.max(b(b.c),b(b.d));
+
+        return b;
+    }
+
+    public void f(){
+        f(a);
+        System.out.println();
+    }
+
+    private void f(A a){
+        if(a!=null){
+            f(a.c);
+            System.out.print(a.a+" ");
+            f(a.d);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[]a){
+        Scanner b=new Scanner(System.in);
+        B c=new B();
+
+        System.out.print("How many numbers would you like to add? ");
+        int d=b.nextInt();
+
+        for(int e=0;e<d;e++){
+            System.out.print("Enter a number: ");
+            c.a(b.nextInt());
+        }
+
+        System.out.println("Your AVL tree in sorted order:");
+        c.f();
+
+        b.close();
+    }
+}
