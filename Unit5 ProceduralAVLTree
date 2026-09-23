@@ -1,0 +1,181 @@
+import java.util.Scanner;
+
+// Node only stores the data
+class Node {
+
+    int value;
+    int height;
+    Node left;
+    Node right;
+
+    Node(int value) {
+        this.value = value;
+        this.height = 1;
+    }
+}
+
+
+public class Main {
+
+    static Node root;
+
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("How many numbers would you like to add? ");
+        int amount = input.nextInt();
+
+        for (int i = 0; i < amount; i++) {
+
+            System.out.print("Enter a number: ");
+            int value = input.nextInt();
+
+            root = insert(root, value);
+        }
+
+        System.out.println("Your AVL tree in sorted order:");
+
+        display(root);
+
+        input.close();
+    }
+
+
+    // METHOD 1: Insert
+    static Node insert(Node node, int value) {
+
+        if (node == null) {
+            return new Node(value);
+        }
+
+        if (value < node.value) {
+            node.left = insert(node.left, value);
+        }
+
+        else if (value > node.value) {
+            node.right = insert(node.right, value);
+        }
+
+        else {
+            return node;
+        }
+
+
+        node.height = 1 + Math.max(
+                height(node.left),
+                height(node.right)
+        );
+
+
+        int balance = getBalance(node);
+
+
+        // Left-Left
+        if (balance > 1 && value < node.left.value) {
+            return rotateRight(node);
+        }
+
+
+        // Right-Right
+        if (balance < -1 && value > node.right.value) {
+            return rotateLeft(node);
+        }
+
+
+        // Left-Right
+        if (balance > 1 && value > node.left.value) {
+
+            node.left = rotateLeft(node.left);
+
+            return rotateRight(node);
+        }
+
+
+        // Right-Left
+        if (balance < -1 && value < node.right.value) {
+
+            node.right = rotateRight(node.right);
+
+            return rotateLeft(node);
+        }
+
+
+        return node;
+    }
+
+
+    // METHOD 2: Get height
+    static int height(Node node) {
+
+        if (node == null) {
+            return 0;
+        }
+
+        return node.height;
+    }
+
+
+    // METHOD 3: Get balance
+    static int getBalance(Node node) {
+
+        if (node == null) {
+            return 0;
+        }
+
+        return height(node.left) - height(node.right);
+    }
+
+
+    // METHOD 4: Rotate right
+    static Node rotateRight(Node node) {
+
+        Node newRoot = node.left;
+        Node temp = newRoot.right;
+
+        newRoot.right = node;
+        node.left = temp;
+
+        node.height =
+                1 + Math.max(height(node.left), height(node.right));
+
+        newRoot.height =
+                1 + Math.max(height(newRoot.left), height(newRoot.right));
+
+        return newRoot;
+    }
+
+
+    // METHOD 5: Rotate left
+    static Node rotateLeft(Node node) {
+
+        Node newRoot = node.right;
+        Node temp = newRoot.left;
+
+        newRoot.left = node;
+        node.right = temp;
+
+        node.height =
+                1 + Math.max(height(node.left), height(node.right));
+
+        newRoot.height =
+                1 + Math.max(height(newRoot.left), height(newRoot.right));
+
+        return newRoot;
+    }
+
+
+    // METHOD 6: Display
+    static void display(Node node) {
+
+        if (node != null) {
+
+            display(node.left);
+
+            System.out.print(node.value + " ");
+
+            display(node.right);
+        }
+    }
+}
