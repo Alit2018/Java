@@ -1,0 +1,250 @@
+import java.util.Scanner;
+
+
+// ==========================================
+// NODE CLASS
+// Represents one node in the tree
+// ==========================================
+
+class Node {
+
+    int value;
+    int height;
+
+    Node left;
+    Node right;
+
+
+    Node(int value) {
+
+        this.value = value;
+        this.height = 1;
+    }
+}
+
+
+// ==========================================
+// AVL TREE CLASS
+// Manages the tree
+// ==========================================
+
+class AVLTree {
+
+    private Node root;
+
+
+    // Insert a value into the tree
+    public void insert(int value) {
+
+        root = insert(root, value);
+    }
+
+
+    // Recursive insertion
+    private Node insert(Node node, int value) {
+
+        if (node == null) {
+            return new Node(value);
+        }
+
+
+        if (value < node.value) {
+
+            node.left = insert(node.left, value);
+        }
+
+        else if (value > node.value) {
+
+            node.right = insert(node.right, value);
+        }
+
+        else {
+
+            return node;
+        }
+
+
+        // Update height
+        node.height = 1 + Math.max(
+                height(node.left),
+                height(node.right)
+        );
+
+
+        // Check balance
+        int balance = getBalance(node);
+
+
+        // Left-Left
+        if (balance > 1 && value < node.left.value) {
+
+            return rotateRight(node);
+        }
+
+
+        // Right-Right
+        if (balance < -1 && value > node.right.value) {
+
+            return rotateLeft(node);
+        }
+
+
+        // Left-Right
+        if (balance > 1 && value > node.left.value) {
+
+            node.left = rotateLeft(node.left);
+
+            return rotateRight(node);
+        }
+
+
+        // Right-Left
+        if (balance < -1 && value < node.right.value) {
+
+            node.right = rotateRight(node.right);
+
+            return rotateLeft(node);
+        }
+
+
+        return node;
+    }
+
+
+    // Get node height
+    private int height(Node node) {
+
+        if (node == null) {
+            return 0;
+        }
+
+        return node.height;
+    }
+
+
+    // Calculate balance
+    private int getBalance(Node node) {
+
+        if (node == null) {
+            return 0;
+        }
+
+        return height(node.left) - height(node.right);
+    }
+
+
+    // Right rotation
+    private Node rotateRight(Node node) {
+
+        Node newRoot = node.left;
+        Node temp = newRoot.right;
+
+
+        newRoot.right = node;
+
+        node.left = temp;
+
+
+        node.height =
+                1 + Math.max(height(node.left), height(node.right));
+
+
+        newRoot.height =
+                1 + Math.max(height(newRoot.left), height(newRoot.right));
+
+
+        return newRoot;
+    }
+
+
+    // Left rotation
+    private Node rotateLeft(Node node) {
+
+        Node newRoot = node.right;
+        Node temp = newRoot.left;
+
+
+        newRoot.left = node;
+
+        node.right = temp;
+
+
+        node.height =
+                1 + Math.max(height(node.left), height(node.right));
+
+
+        newRoot.height =
+                1 + Math.max(height(newRoot.left), height(newRoot.right));
+
+
+        return newRoot;
+    }
+
+
+    // Display the tree
+    public void display() {
+
+        display(root);
+
+        System.out.println();
+    }
+
+
+    // Recursive display
+    private void display(Node node) {
+
+        if (node != null) {
+
+            display(node.left);
+
+            System.out.print(node.value + " ");
+
+            display(node.right);
+        }
+    }
+}
+
+
+// ==========================================
+// MAIN CLASS
+// Handles user interaction
+// ==========================================
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+
+        // Create an AVLTree OBJECT
+        AVLTree tree = new AVLTree();
+
+
+        System.out.print("How many numbers would you like to add? ");
+
+        int amount = input.nextInt();
+
+
+        for (int i = 0; i < amount; i++) {
+
+            System.out.print("Enter a number: ");
+
+            int value = input.nextInt();
+
+
+            // Tell the tree object to insert the value
+            tree.insert(value);
+        }
+
+
+        System.out.println("Your AVL tree in sorted order:");
+
+
+        // Tell the tree object to display itself
+        tree.display();
+
+
+        input.close();
+    }
+}
