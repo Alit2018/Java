@@ -1,0 +1,15 @@
+import java.util.*;
+//If a method is written to receive a double parameter, and you pass an int to the method, 
+//then the method will work correctly; the int will be promoted to a double.
+
+//If a method is written to receive an int parameter, and you pass a double to the method, 
+//then the method will not work; an error message will be issued
+
+public class Main {
+    public static void main(String[] args) {
+      passInt(11);
+    }
+  public static void passInt (int x){
+    System.out.println("The integer is " + x );
+  }
+}
