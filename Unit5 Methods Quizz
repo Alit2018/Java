@@ -1,0 +1,36 @@
+//masking System.out.println(number) prints 20.
+//A locally declared variable always _____ another variable with the same name elsewhere in the class?
+//mask
+class Example {
+
+    static int number = 10;
+
+    public static void test() {
+        int number = 20;
+
+        System.out.println(number);
+    }
+}
+
+
+//_____ a method allows you to use one identifier to execute diverse tasks.
+//overloeading
+add(int a, int b)
+add(double a, double b)
+add(int a, int b, int c)
+//All three use the identifier add, but Java determines which method to execute based on the arguments.
+
+//Method overloading means having methods with the same name but different parameter lists.
+static void display(int x) { }
+static void display(double x) { }
+static void display(int x, int y) { }
+//All are named display(), but their parameters differ, so Java can determine which one to call.
+
+
+//To invoke a method means to call it so that it executes.
+public static void sayHello() {
+    System.out.println("Hello!");
+}
+public static void main(String[] args) {
+    sayHello();  // ← invokes the method
+}
