@@ -1,0 +1,44 @@
+import java.time.*;             //imports LocatTime class from java.time package
+import java.util.Scanner;       // imports Scanner from java.util package
+
+//calculates the number of days remaining until the start of the next month based on a date input by the user. 
+//The program uses the LocalDate class to handle date-related calculations and the Scanner class to capture user input.
+//a LocalDate object based on the input.
+
+public class DaysTilNextMonth 
+{
+   public static void main(String[] args)
+   {
+      LocalDate now;  //will hold the date input by the user as a LocalDate object.
+      int mo, da, yr; //integer variables will store the month, day, and year input by the user.
+      int daysTilNextMo; //This variable will store the calculated number of days until the next month starts
+
+      Scanner input = new Scanner(System.in); //creates a scanner object to read user input
+      //Thus, this creates a Scanner object named input to capture user input from the console.
+
+      System.out.print("Enter the month as an integer >> ");
+      mo = input.nextInt();
+
+      System.out.print("Enter the day >> ");
+      da = input.nextInt();
+
+      System.out.print("Enter the year using four digits >> ");
+      yr = input.nextInt();
+
+      now = LocalDate.of(yr, mo, da); // creates a LocalDate object representing the date entered by the user.
+      //This method creates a LocalDate object using the year (yr), month (mo), and day (da) provided by the user. 
+      //The now variable now holds this date.
+
+      daysTilNextMo = now.lengthOfMonth() - da + 1; // calculates the number of days remaining until the start of the next month.
+      //now.lengthOfMonth():This method returns the number of days in the current month
+      System.out.println("There are " + daysTilNextMo +
+         " days until " + now.plusMonths(1).getMonth() + " starts"); //prints the number of days until the next month starts 
+         //and the name of the next month.
+   }
+}
+/*
+Explanation:
+now.plusMonths(1): This method adds one month to the current date, effectively moving to the next month.
+.getMonth(): This method retrieves the name of the next month (e.g., May, June).
+The System.out.println statement concatenates the calculated number of days with the name of the next month and prints the result.
+*/
