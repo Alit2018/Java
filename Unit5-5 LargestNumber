@@ -63,4 +63,30 @@ public class DebugFive4
            else
               highest = four;
       System.out.println("The highest number is " + highest);
-   }
+
+---------- or ------------
+
+import java.util.Scanner;
+
+public class LargestNumber {
+
+public static void main(String[] arges){
+
+int first, last, highest;
+
+Scanner input = new Scanner(System.in);
+
+System.out.print("Enter the first integer: ");
+
+first = input.nextInt();
+
+System.out.print("and your last integer: ");
+
+last = input.nextInt();
+
+highest = Math.min(first, last);
+
+System.out.println("The highest number is " + highest);
+
+input.close();
+}};
