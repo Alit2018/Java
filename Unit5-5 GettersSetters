@@ -1,0 +1,58 @@
+public class Student {
+
+    // Private instance variables
+    private String name;
+    private int age;
+
+    // Constructor 1
+    public Student() {
+        name = "Unknown";
+        age = 18;
+    }
+
+    // Constructor 2 (overloaded)
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Setter
+    public void setAge(int age) {
+        if (age >= 0) {
+            this.age = age;
+        }
+    }
+
+    // Getter
+    public int getAge() {
+        return age;
+    }
+
+    // Getter for name
+    public String getName() {
+        return name;
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Create an object using a constructor
+        Student s1 = new Student("Alan", 25);
+
+        // Retrieve the age using a getter
+        System.out.println(s1.getAge());
+
+        // Change the age using a setter
+        s1.setAge(26);
+
+        // Retrieve the updated age
+        System.out.println(s1.getAge());
+    }
+}
+
+
+Output:
+25
+26
