@@ -1,0 +1,43 @@
+public class BankAccount {
+
+    public double balance = 1000.00;
+
+    public static void main(String[] args) {
+
+        BankAccount account = new BankAccount();
+
+        account.balance = 1.00;
+
+        System.out.println(account.balance);
+    }
+}
+
+
+
+
+
+public class BankAccount {
+
+    private double balance = 1000.00;
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        BankAccount account = new BankAccount();
+
+        account.deposit(500);
+
+        System.out.println(account.getBalance());
+    }
+}
+
+//This is a data integrity problem, although it is not necessarily a security exploit.
