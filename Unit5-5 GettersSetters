@@ -56,3 +56,6 @@ public class Main {
 Output:
 25
 26
+
+Constructors initialize objects; setters modify their state; getters retrieve their state; and encapsulation helps control access to that state.
+
