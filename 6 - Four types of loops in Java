@@ -1,0 +1,78 @@
+
+public class LoopExamples {
+
+    public static void main(String[] args) {
+
+        // ==========================================
+        // EXAMPLE 1: INFINITE WHILE LOOP
+        // ==========================================
+
+        // An infinite loop repeats without a fixed end.
+        // while(true) means the condition is always true.
+        // A break statement is used here so the program
+        // can continue to the other examples.
+
+        System.out.println("1. Infinite-style while loop:");
+
+        int count = 0;
+
+        while (true) {
+            System.out.println("Hello");
+            count++;
+
+            if (count == 5) {
+                break;
+            }
+        }
+
+        // ==========================================
+        // EXAMPLE 2: FOR LOOP
+        // ==========================================
+
+        // A for loop is best when we know in advance
+        // how many times the code should execute.
+        // It combines initialization, condition,
+        // and increment in one statement.
+
+        System.out.println("\n2. For loop:");
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Hello");
+        }
+
+        // ==========================================
+        // EXAMPLE 3: WHILE LOOP
+        // ==========================================
+
+        // A while loop checks its condition BEFORE
+        // executing the code inside the loop.
+        // It can execute zero or more times.
+
+        System.out.println("\n3. While loop:");
+
+        int i = 0;
+
+        while (i < 5) {
+            System.out.println("Hello");
+            i++;
+        }
+
+        // ==========================================
+        // EXAMPLE 4: DO-WHILE LOOP
+        // ==========================================
+
+        // A do-while loop executes the code FIRST
+        // and checks the condition AFTERWARD.
+        // It always executes at least once.
+
+        System.out.println("\n4. Do-while loop:");
+
+        int j = 1;
+
+        do {
+            System.out.println("Hello");
+            j++;
+        } while (j <= 5);
+
+    }
+}
