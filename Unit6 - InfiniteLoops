@@ -1,0 +1,11 @@
+while (true) {
+    System.out.println("Hello");
+}
+
+for (;;) {
+    System.out.println("Hello");
+}
+
+do {
+    System.out.println("Hello");
+} while (true);
