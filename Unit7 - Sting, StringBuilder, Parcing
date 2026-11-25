@@ -1,0 +1,24 @@
+public class StringPractice
+{
+    public static void main(String[] args)
+    {
+        // 1. Immutable String creation
+        String message = "Code doesn't know diversity";
+        message = message + ", humans do";
+
+        // 2. Mutable StringBuilder is here
+        StringBuilder statement = new StringBuilder(message);
+        statement.append(", AI will eradicate it.");
+
+        // 3. Convert String to primitive now
+        String text = "2026";
+        int year = Integer.parseInt(text);
+
+        // 4. Convert primitive to String here
+        String yearString = Integer.toString(year);
+
+        // Display results of the entire statement
+        System.out.println(statement);
+        System.out.println("Year: " + yearString);
+    }
+}
