@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+/*Python:
+our_string = "This is our string"
+
+JAVA:
+String OurString = "This is a string";
+String BetterString = new String("This is a string");
+*/
+
+String Word1 = new String("happy");
+String Word2 = new String("happy");
+String Word3 = "Happy";
+
+String name1 = new String("Jordan");
+String name2 = new String("Michael");
+
+
+String movie = new String("Finding Dory");
+
+
+//movie.indexOf('i')
+
+//movie.replace('i', 'o');
+
+
+//name1.compareTo(name2);
+
+
+//Word2 == Word1;
+
+//Word2.equals(Word1);
+
+      //System.out.println(Word2.equals(Word1));
+      //System.out.println(Word2 == Word1);
+      //System.out.println(Word3.equalsIgnoreCase(Word1));
+      //System.out.println(name1.compareTo(name2));
+       System.out.println(movie.indexOf('i'));
+       System.out.println(movie.replace('i', 'o'));
+
+
+    }
+}
