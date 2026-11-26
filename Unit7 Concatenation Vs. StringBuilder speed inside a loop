@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Benchmark {
+    public static void main(String[] args) {
+        // Create a list of 50,000 items
+        List<String> items = new ArrayList<>();
+        for (int i = 0; i < 50_000; i++) {
+            items.add("item" + i);
+        }
+
+        // 1. Test standard '+' concatenation in a loop
+        long startConcat = System.nanoTime();
+        String concatResult = "";
+        for (String item : items) {
+            concatResult += item + ", ";
+        }
+        long endConcat = System.nanoTime();
+        System.out.println("+ Concatenation took: " + (endConcat - startConcat) / 1_000_000 + " ms");
+
+        // 2. Test StringBuilder in a loop
+        long startSb = System.nanoTime();
+        StringBuilder sb = new StringBuilder();
+        for (String item : items) {
+            sb.append(item).append(", ");
+        }
+        String sbResult = sb.toString();
+        long endSb = System.nanoTime();
+        System.out.println("StringBuilder took:   " + (endSb - startSb) / 1_000_000 + " ms");
+    }
+}
