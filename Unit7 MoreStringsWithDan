@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+      String OurString = new String("banana");
+       String NewString = OurString.substring(1, 4);
+
+       String number = "123.123";
+       double DoubleNumber = Double.parseDouble(number); 
+       //static class and static methods, don't create objects we use class right away
+
+
+       String IntegerString = new String("10");
+       int VeryOldString = Integer.parseInt(IntegerString);
+
+
+
+       StringBuilder sb = new StringBuilder("Hello"); // Initial capacity: 16 + string length
+
+      sb.append(" World");      // "Hello World" (adds to the end)
+      sb.insert(5, ",");        // "Hello, World" (inserts at index)
+      sb.replace(7, 12, "Java");// "Hello, Java" (replaces start to end-1)
+      sb.delete(5, 6);          // "Hello Java" (removes characters)
+      sb.reverse();             // "avaJ olleH" (reverses character order)
+
+String result = sb.toString(); // Converts back to an immutable String
+
+
+
+        System.out.println(VeryOldString);
+
+
+
+        //System.out.println(DoubleNumber);
+
+
+
+      //System.out.println(NewString);
+    }
